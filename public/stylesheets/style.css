@@ -13,11 +13,10 @@ a {
 .bg {
   background-image: url("../images/bg.jpg");
 
-  width: 100%;
   height: 100vh;
 
 
-  background-position: center center;
+  /* background-position: center center; */
 
   
   background-repeat: no-repeat;
@@ -28,8 +27,8 @@ a {
   background-size: cover;
 
   
-  background-color: green;
-  overflow: hidden;
+  /* background-color: green;
+  overflow: hidden; */
 }
 
 .mt-200{
