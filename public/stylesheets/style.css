@@ -11,7 +11,9 @@ a {
 }
 
 .bg {
-  background-image: url("../images/bg.jpg");
+  background-color: #808080;
+  color: aliceblue;
+  /* background-image: url("../images/bg.jpg");
 
   height: 545px;
 
@@ -28,9 +30,21 @@ a {
 
   
   /* background-color: green;
-  overflow: hidden; */
+  overflow: hidden; */ */
 }
 
-.mt-200{
-  margin-top: 200px;
+.mt-home{
+  margin-top: 150px;
+}
+
+.content_center {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+@media only screen and (max-width: 600px) {
+  .mt-home {
+    margin-top: 0px;
+  }
 }
