@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarship Details</title>
+    <% include partials/bootstrap.ejs %>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+    <% include partials/header.ejs %>
+    <div class="container p-5">
+        <h1 class="m-3"><%= scholarship.title %></h1>
+        <h2 class="m-3">Description</h2>
+        <h6 class="m-3"><%= scholarship.description %></h6>
+        <h2 class="m-3">Amount of the Scholarship</h2>
+        <h6 class="text-blue m-3">$<%= scholarship.amount %></h6>
+        <h2 class="m-3">Last Date to Apply</h2>
+        <h6 class="m-3"><%= scholarship.date %></h6>
+        <h2 class="m-3">Link for the Application</h2>
+        <a href="#"><button class="btn btn-primary m-3">Apply Here!</button></a>
+        <a href="/scholarships/favorites/<%= scholarship._id %>"
+            ><button type="button" class="btn btn-lg btn-info">
+              Add to Favorites
+            </button></a
+          >
+
+    </div>
+    
+</body>
+</html>

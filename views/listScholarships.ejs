@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarships</title>
+    <% include partials/bootstrap.ejs %>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+    <% include partials/header.ejs %>
+    <div class="row">
+    <% for (var i =0; i <scholarships.length;  i++ ) { %>
+        <div class="scholarship col-sm-12 col-md-6 col-lg-4 my-3 px-3">
+            <div class="card rounded bg-light">
+                <img class="card-img-top" src="../images/card.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%=scholarships[i].title%></h5>
+          <p class="card-text">Last Date to Apply: <%=scholarships[i].date%></p>
+          <a href="/scholarships/<%= scholarships[i]._id %>" class="btn btn-sm btn-primary">View Scholarship</a>
+          <a href="/scholarships/favorites/<%= scholarships[i]._id %>"
+            ><button type="button" class="btn btn-sm btn-info">
+              Add to Favorites
+            </button></a
+          >
+          
+        </div>
+    </div>
+    </div>
+        <% } %>
+    </div>
+        
+    
+</body>
+</html>

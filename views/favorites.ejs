@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include partials/bootstrap.ejs %>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <% include partials/header.ejs %>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Last Date to Apply</th>
+        </tr>
+      </thead>
+      <tbody>
+        <br />
+        <% for (var i =0; i < favorites.length; i++ ) { %>
+        <br />
+        <tr>
+          <td><%= favorites[i].title %></td>
+          <td><%= favorites[i].date %></td>
+          <td>
+            <a href="/favorites/delete/<%= favorites[i]._id %>"
+              ><button type="button" class="btn btn-sm btn-danger">
+                Delete
+              </button></a
+            >
+          </td>
+          <td>
+            <a href="/scholarships/<%= favorites[i]._id %>"
+              ><button type="button" class="btn btn-sm btn-info">
+                View
+              </button></a
+            >
+          </td>
+        </tr>
+        <% } %>
+      </tbody>
+      <tfoot>
+        <td><b>Total Number of Favorite Scholarships: <%= favorites.length%></b></td>
+      </tfoot>
+    </table>
+
+    
+  </body>
+</html>
