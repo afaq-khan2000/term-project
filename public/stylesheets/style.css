@@ -30,17 +30,11 @@ a {
 
   
   /* background-color: green;
-  overflow: hidden; */ */
+  overflow: hidden; */ 
 }
 
 .mt-home{
   margin-top: 150px;
-}
-
-.content_center {
-  display: flex;
-  justify-content: center;
-  align-items: center; 
 }
 
 @media only screen and (max-width: 600px) {
