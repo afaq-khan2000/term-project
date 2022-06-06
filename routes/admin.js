@@ -30,7 +30,14 @@ router.get("/scholarships/:id", async function (req, res, next) {
 });
 
 // Post
-router.post("/scholarships", validateScholarship, async function (req, res, next) {
+
+
+router.get("/scholarship/add", function (req, res, next) {
+    res.render("addScholarship");
+});
+
+
+router.post("/scholarships/add", validateScholarship, async function (req, res, next) {
     let scholarship = new Scholarship();
     scholarship.title = req.body.title;
     scholarship.description = req.body.description;
@@ -41,8 +48,7 @@ router.post("/scholarships", validateScholarship, async function (req, res, next
     scholarship.link = req.body.link;
 
     await scholarship.save();
-
-    res.send(scholarship);
+    res.redirect("/admin/scholarships");
 });
 
 // Put
@@ -51,20 +57,20 @@ router.get("/scholarships/edit/:id", async function (req, res, next) {
     res.render("editScholarship", { scholarship });
 });
 
-// router.put("/scholarships/edit/:id", validateScholarship, async function (req, res, next) {
-//     let scholarship = await Scholarship.findById(req.params.id);
-//     scholarship.title = req.body.title;
-//     scholarship.description = req.body.description;
-//     scholarship.program = req.body.program;
-//     scholarship.amount = req.body.amount;
-//     scholarship.date = req.body.date;
-//     scholarship.eligibility = req.body.eligibility;
-//     scholarship.link = req.body.link;
+router.post("/scholarships/edit/:id", validateScholarship, async function (req, res, next) {
+    let scholarship = await Scholarship.findById(req.params.id);
+    scholarship.title = req.body.title;
+    scholarship.description = req.body.description;
+    scholarship.program = req.body.program;
+    scholarship.amount = req.body.amount;
+    scholarship.date = req.body.date;
+    scholarship.eligibility = req.body.eligibility;
+    scholarship.link = req.body.link;
 
-//     await scholarship.save();
+    await scholarship.save();
 
-//     res.send(scholarship);
-// });
+    res.redirect("/admin/scholarships");
+});
 
 //   Delete
 

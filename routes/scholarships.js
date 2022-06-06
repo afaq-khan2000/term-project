@@ -24,45 +24,6 @@ router.get("/:id", async function (req, res, next) {
   }
 });
 
-// Post
-router.post("/", validateScholarship, async function (req, res, next) {
-  let scholarship = new Scholarship();
-  scholarship.title = req.body.title;
-  scholarship.description = req.body.description;
-  scholarship.program = req.body.program;
-  scholarship.amount = req.body.amount;
-  scholarship.date = req.body.date;
-  scholarship.eligibility = req.body.eligibility;
-  scholarship.link = req.body.link;
-
-  await scholarship.save();
-
-  res.send(scholarship);
-});
-
-// Put
-router.put("/edit/:id", validateScholarship, async function (req, res, next) {
-  let scholarship = await Scholarship.findById(req.params.id);
-  scholarship.title = req.body.title;
-  scholarship.description = req.body.description;
-  scholarship.program = req.body.program;
-  scholarship.amount = req.body.amount;
-  scholarship.date = req.body.date;
-  scholarship.eligibility = req.body.eligibility;
-  scholarship.link = req.body.link;
-
-  await scholarship.save();
-
-  res.send(scholarship);
-});
-
-//   Delete
-
-router.delete("/delete/:id", async function (req, res, next) {
-  let scholarship = await Scholarship.findByIdAndDelete(req.params.id);
-  res.send(scholarship);
-});
-
 // Favorites route
 
 router.get("/favorites/:id", auth, async function (req, res, next) {

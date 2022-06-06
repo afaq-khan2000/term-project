@@ -17,10 +17,10 @@ function validateScholarship(data) {
   const schema = Joi.object({
     title: Joi.string().required(),
     description: Joi.string().required(),
-    program: Joi.array().items(Joi.string().required()),
+    program: Joi.array().items(Joi.string()),
     amount: Joi.number().min(0).required(),
     date: Joi.string().required(),
-    eligibility: Joi.array().items(Joi.string().required()),
+    eligibility: Joi.array().items(Joi.string()),
     link: Joi.string().required(),
   });
 

@@ -33,19 +33,19 @@
         </div>
       </nav>
 <div class="container mt-5">
-  <h1>Edit Details</h1>
-      <form action="/admin/scholarships/edit/<%=scholarship._id%>" method="post">
+    <h1>Add new Scholarship</h1>
+      <form action="/admin/scholarships/add" method="post">
         <!-- 2 column grid layout with text inputs for the first and last names -->
         <div class="row mb-4">
           <div class="col">
             <div class="form-outline">
-              <input type="text" id="title" class="form-control" name="title" value="<%=scholarship.title%>"/>
+              <input type="text" id="title" class="form-control" name="title"/>
               <label class="form-label" for="title">Title</label>
             </div>
           </div>
           <div class="col">
             <div class="form-outline">
-              <input type="text" id="amount" class="form-control" name="amount" value="<%=scholarship.amount%>"/>
+              <input type="text" id="amount" class="form-control" name="amount"/>
               <label class="form-label" for="amount">Scholarship Amount</label>
             </div>
           </div>
@@ -53,25 +53,25 @@
       
         <!-- Text input -->
         <div class="form-outline mb-4">
-          <input type="text" id="date" class="form-control" name="date" value="<%=scholarship.date%>"/>
+          <input type="text" id="date" class="form-control" name="date"/>
           <label class="form-label" for="date">Last date to Apply</label>
         </div>
 
         <div class="form-outline mb-4">
-          <input type="text" id="link" class="form-control" name="link" value="<%=scholarship.link%>"/>
+          <input type="text" id="link" class="form-control" name="link" />
           <label class="form-label" for="link">Link to Apply</label>
         </div>
       
       
         <!-- Message input -->
         <div class="form-outline mb-4">
-          <input type="text" class="form-control" id="description" rows="4" name="description" value="<%=scholarship.description%>" />
+          <input type="text" class="form-control" id="description" rows="4" name="description"/>
           <label class="form-label" for="description">Description</label>
         </div>
      
       
         <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block mb-4">Update</button>
+        <button type="submit" class="btn btn-primary btn-block mb-4">Add</button>
       </form>
     </div>
 
