@@ -7,7 +7,9 @@ var config = require("config");
 var mongoose = require("mongoose");
 var dotenv = require("dotenv");
 const cors = require("cors");
-var session = require('express-session');
+const auth = require("./middlewares/auth");
+const admin = require("./middlewares/admin");
+const isUser = require("./middlewares/isUser");
 
 require("dotenv").config();
 
@@ -15,7 +17,7 @@ var indexRouter = require('./routes/index');
 var scholarshipsRouter = require('./routes/scholarships');
 var favoritesRouter = require('./routes/favorites');
 var usersRouter = require('./routes/users');
-var sessionAuth = require("./middlewares/sessionAuth");
+var adminsRouter = require('./routes/admin');
 
 var app = express();
 
@@ -25,15 +27,7 @@ app.use(
   })
 );
 
-app.use(
-  session({
-    secret: "keyboard cat",
-    cookie: { maxAge: 60000 },
-  })
-);
-
-app.use(sessionAuth);
-
+app.use(isUser);
 
 mongoose
   .connect(process.env.MONGO_URI)
@@ -55,6 +49,7 @@ app.use('/', indexRouter);
 app.use('/scholarships', scholarshipsRouter);
 app.use("/favorites", favoritesRouter);
 app.use("/users", usersRouter);
+app.use("/admin", auth, admin, adminsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

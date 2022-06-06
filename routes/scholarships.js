@@ -2,7 +2,8 @@ var express = require("express");
 const { Scholarship } = require("../models/scholarship");
 var router = express.Router();
 const validateScholarship = require("../middlewares/validateScholarship");
-const checkSessionAuth = require("../middlewares/checkSessionAuth");
+const auth = require("../middlewares/auth");
+const admin = require("../middlewares/admin");
 
 /* GET users listing. */
 router.get("/", async function (req, res, next) {
@@ -40,7 +41,7 @@ router.post("/", validateScholarship, async function (req, res, next) {
 });
 
 // Put
-router.put("/:id", validateScholarship, async function (req, res, next) {
+router.put("/edit/:id", validateScholarship, async function (req, res, next) {
   let scholarship = await Scholarship.findById(req.params.id);
   scholarship.title = req.body.title;
   scholarship.description = req.body.description;
@@ -57,14 +58,14 @@ router.put("/:id", validateScholarship, async function (req, res, next) {
 
 //   Delete
 
-router.delete("/:id", async function (req, res, next) {
+router.delete("/delete/:id", async function (req, res, next) {
   let scholarship = await Scholarship.findByIdAndDelete(req.params.id);
   res.send(scholarship);
 });
 
 // Favorites route
 
-router.get("/favorites/:id", checkSessionAuth, async function (req, res, next) {
+router.get("/favorites/:id", auth, async function (req, res, next) {
   const scholarship = await Scholarship.findById(req.params.id);
   let favorites = [];
   if (req.cookies.favorites) favorites = req.cookies.favorites;

@@ -15,7 +15,7 @@
         <li class="nav-item">
           <a class="nav-link" href="/favorites">Favorites</a>
         </li>
-        <% if(!user) { %>
+       <% if(!user) {%>
         <li class="nav-item">
           <a class="nav-link" href="/users/register"><button class="btn btn-sm btn-info">Sign Up</button></a>
         </li>
@@ -23,11 +23,18 @@
           <a class="nav-link" href="/users/login"><button class="btn btn-sm btn-success">Login</button></a>
         </li>
         <% } %>
-        <% if(user) { %>
+        <% if(user) {%>
         <li class="nav-item ">
           <a class="nav-link" href="/users/logout"><button class="btn btn-sm btn-danger">Logout</button></a>
         </li>
         <% } %>
-      </form>
+      </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item ">
+        
+          <a class="nav-link" href="/admin">Admin Panel</a>
+
+        </li>
+        </ul>
     </div>
   </nav>
